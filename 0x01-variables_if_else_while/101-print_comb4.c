@@ -1,29 +1,32 @@
 #include <stdio.h>
 
 /**
- * main - Function
- *
- * Return: Always 0.
- */
+  * main - Prints 3 combination of numbers
+  *
+  * Return: Always (Success)
+  */
 int main(void)
 {
-	int p1, p2, p3
+	int a, i, d;
 
-	for (p1 = 0; p1 < 8; p1++)
+	for (a = '0'; a <= '9'; a++)
 	{
-		for (p2 = p1 + 1; p2 < 9; p2++)
+		for (i = '0'; i <= '9'; i++)
 		{
-			for (p3 = p2 + 1; p3 < 10; p3++)
+			for (d = '0'; d <= '9'; d++)
 			{
-				putchar((p1 % 10) + '0');
-				putchar((p2 % 10) + '0');
-				putchar((p3 % 10) + '0');
+				if (a < i && i < d)
+				{
+					putchar(a);
+					putchar(i);
+					putchar(d);
 
-				if (p1 == 7 && p2 == 8 && p3 == 9)
-					continue;
-
-				putchar(',');
-				putchar(' ');
+					if (a != '7')
+					{
+						putchar(',');
+						putchar(' ');
+					}
+				}
 			}
 		}
 	}
