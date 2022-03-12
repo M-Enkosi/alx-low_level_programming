@@ -1,24 +1,34 @@
- */
+#include <stdio.h>
+
+/**
+  * main - Prints combination of numbers
+  *
+  * Return: Always (Success)
+  */
 int main(void)
 {
-        int n;
-        int m;
+	int a, i;
 
-        for (n = 48 ; n <= 57 ; n++)
-        {
-                for (m = 48 ; m <= 57 ; m++)
-                {
-                        putchar(n);
-                        putchar(m);
+	for (a = '0'; a <= '9'; a++)
+	{
+		for (i = '0'; i <= '9'; i++)
+		{
+			if (a < i)
+			{
+				putchar(a);
+				putchar(i);
 
-                        if ((n != 57) || (m != 57))
-                        {
-                                putchar(',');
-                                putchar(' ');
-                        }
-                }
-        }
-        putchar('\n');
-        return (0);
+				if (a != '8' || (a == '8' && i != '9'))
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
+		}
+	}
+
+	putchar('\n');
+
+	return (0);
 }
 
