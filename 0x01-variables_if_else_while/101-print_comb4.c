@@ -19,7 +19,7 @@ int main(void)
 				putchar((p2 % 10) + '0');
 				putchar((p3 % 10) + '0');
 
-				if (p1 == 7 && p2 == 8 && 3 == 9)
+				if (p1 == 7 && p2 == 8 && p3 == 9)
 					continue;
 
 				putchar(',');
