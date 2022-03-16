@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- *  * main - prints a word
- *   *
- *    * Description: just prints a statement
- *     * Return: Always(0) Success
- *      */
+* main - prints a word
+*
+* Description: prints a word (_putchar)
+* Return: Always (0) Success
+*/
 
 int main(void)
 {
