@@ -1,7 +1,7 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
- * puts2 - print character
+ * puts2 - print characte
  * @str: input string
  *
  * Description: prints character of a string, starting first character
@@ -10,7 +10,7 @@
 
 void puts2(char *str)
 {
-	int i=0;
+	int i = 0;
 
 	while (str[i] != '\0')
 	{
