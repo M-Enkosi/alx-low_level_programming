@@ -3,35 +3,46 @@
 #include <stdio.h>
 
 /**
- * alloc_grid - pointer to a 2 dimensional array of integers
- * @width: input width
- * @height: input height
- *
- * Return: returns NULL on failure
+ * alloc_grid - returns a pointer to a 2 dimensional array of integers
+ * @width: width of array
+ * @height: height of array
+ * Return: double pointer to multi-dimen array
  */
-
 int **alloc_grid(int width, int height)
 {
-	int **arr;
-	int i;
+	int **grid, r, c;
 
-	if (width == 0 || height == 0)
+	if (width <= 0 || height <= 0)
 	{
 		return (NULL);
 	}
-	arr = (int **) malloc(height * sizeof(int *));
 
-	if (arr == 0)
-	{
+	grid = malloc(sizeof(int *) * height);
+	/*if memory is insifficuent*/
+	if (!grid)
 		return (NULL);
-	}
-	for (i = 0; i < height; i++)
+
+	c = 0;
+	while (c < height)
 	{
-		arr[i] = malloc(width * sizeof(int));
+		*(grid + c) = malloc(width * sizeof(int));
+
+		if (!(*(grid + c)))
+		{
+			while (c--)
+				free(*(grid + c));
+			free(grid);
+			return (NULL);
+		}
+		r = 0;
+		while (r < width)
+		{
+			*(*(grid + c) + r) = 0;
+			r++;
+
+		}
+		c++;
 	}
-	if (arr != NULL)
-	{
-		return (arr);
-	}
-	return (NULL);
+
+	return (grid);
 }
