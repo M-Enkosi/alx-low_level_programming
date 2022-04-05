@@ -1,53 +1,55 @@
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
 #include <stdio.h>
 
 /**
- * str_concat - concatenates two strings
- * @s1: first input string
- * @s2: second input string
- *
- * Return: returns NULL on failure
+ * _strlen - returns the length of a string
+ * @s: string s
+ * Return: length of string
  */
+int _strlen(char *s)
+{
+	int length = 0;
 
+	while (*s)
+	{
+		s++;
+		length++;
+	}
+	return (length);
+}
+
+/**
+ * str_concat - concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * Return: concatenated strings
+ */
 char *str_concat(char *s1, char *s2)
 {
-	int s1_len, s2_len, i, j;
-	char *str;
+	char *cat, *_cat;
 
 	if (s1 == NULL)
-	{
 		s1 = "";
-	}
-	else if (s2 == NULL)
-	{
+	if (s2 == NULL)
 		s2 = "";
-	}
-	for (s1_len = 0; s1[s1_len] != '\0'; s1_len++)
-		continue;
-	for (s2_len = 0; s2[s2_len] != '\0'; s2_len++)
-		continue;
-	str = malloc(s1_len + s2_len + 1);
 
-	if (str == NULL)
-	{
+	cat = malloc(sizeof(char) * (_strlen(s1) + _strlen(s2)) + 1);
+	if (!cat)
 		return (NULL);
-	}
-	i = 0;
-
-	while (i < s1_len)
+	_cat = cat;
+	while (*s1)
 	{
-		str[i] = s1[i];
-		i++;
+		*_cat = *s1;
+		_cat++;
+		s1++;
 	}
-	j = 0;
-
-	while (i < (s1_len + s2_len))
+	while (*s2)
 	{
-		str[i] = s2[j];
-		i++;
-		j++;
+		*_cat = *s2;
+		_cat++;
+		s2++;
 	}
-	str[i] = '\0';
-	return (str);
+	*_cat = '\0';
+	return (cat);
 }
